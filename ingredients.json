@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "name": "Bananas"
+    },
+    {
+        "id": 1,
+        "name": "Dragon Blood"
+    },
+    {
+        "id": 2,
+        "name": "Porcupine Quills"
+    },
+    {
+        "id": 3,
+        "name": "Mandrake infusion"
+    },
+    {
+        "id": 4,
+        "name": "Water"
+    },
+    {
+        "id": 5,
+        "name": "Rat Tails"
+    }
+]

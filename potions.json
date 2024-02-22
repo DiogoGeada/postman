@@ -1,0 +1,52 @@
+[    
+    {
+        "id": 0,
+        "name": "Strength Potion",
+        "effect": "Superhuman Strength",
+        "ingredients": [
+            {
+                "id": 0,
+                "name": "Bananas"
+            },
+            {
+                "id": 1,
+                "name": "Dragon Blood"
+            }
+        ]
+        
+    },
+    {
+        "id": 1,
+        "name": "Ageing Potion",
+        "effect": "Ages drinker temporarily",
+        "ingredients": [
+            {
+            "id": 2,
+            "name": "Porcupine Quills"
+            },
+            {
+                "id": 3,
+                "name": "Mandrake infusion"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Hair-Raising Potion",
+        "effect": "Raises hair up on end",
+        "ingredients": [
+            {
+                "id": 2,
+                "name": "Porcupine Quills"
+            },
+            {
+                "id": 4,
+                "name": "Water"
+            },
+            {
+                "id": 5,
+                "name": "Rat Tails"
+            }
+        ]
+    }
+]
