@@ -361,6 +361,18 @@
 					"body": "The provided id 'asd', is not an integer."
 				}
 			]
+		},
+		{
+			"name": "brew",
+			"id": "2f3a369e-010f-489a-bf6b-3c0239070032",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
