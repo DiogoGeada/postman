@@ -373,7 +373,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"wizard_name\": \"Barry Otter\",\r\n    \"ingredients\": [0, 1]\r\n}",
+					"raw": "{\r\n    \"wizard_name\": \"{{$randomFullName}}\",\r\n    \"ingredients\": [0, 1]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
