@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "ad1dd9b4-a3bf-4d0e-9162-ca5f8a62f6b0",
+		"name": "Potioncraft",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Potions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4218e1c5-8478-4bdc-b64b-1b40afab3a71",
+						"exec": [
+							"pm.test(\"Get all potions\", function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.have.jsonBody([\r",
+							"    {\r",
+							"        \"id\": 0,\r",
+							"        \"name\": \"Strength Potion\",\r",
+							"        \"effect\": \"Superhuman Strength\",\r",
+							"        \"ingredients\": [\r",
+							"            {\r",
+							"                \"id\": 0,\r",
+							"                \"name\": \"Bananas\"\r",
+							"            },\r",
+							"            {\r",
+							"                \"id\": 1,\r",
+							"                \"name\": \"Dragon Blood\"\r",
+							"            }\r",
+							"        ]\r",
+							"    },\r",
+							"    {\r",
+							"        \"id\": 1,\r",
+							"        \"name\": \"Ageing Potion\",\r",
+							"        \"effect\": \"Ages drinker temporarily\",\r",
+							"        \"ingredients\": [\r",
+							"            {\r",
+							"                \"id\": 2,\r",
+							"                \"name\": \"Porcupine Quills\"\r",
+							"            },\r",
+							"            {\r",
+							"                \"id\": 3,\r",
+							"                \"name\": \"Mandrake infusion\"\r",
+							"            }\r",
+							"        ]\r",
+							"    },\r",
+							"    {\r",
+							"        \"id\": 2,\r",
+							"        \"name\": \"Hair-Raising Potion\",\r",
+							"        \"effect\": \"Raises hair up on end\",\r",
+							"        \"ingredients\": [\r",
+							"            {\r",
+							"                \"id\": 2,\r",
+							"                \"name\": \"Porcupine Quills\"\r",
+							"            },\r",
+							"            {\r",
+							"                \"id\": 4,\r",
+							"                \"name\": \"Water\"\r",
+							"            },\r",
+							"            {\r",
+							"                \"id\": 5,\r",
+							"                \"name\": \"Rat Tails\"\r",
+							"            }\r",
+							"        ]\r",
+							"    }\r",
+							"])\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "4aa988cf-1c36-44bc-91d2-b5db9a00be76",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:7071/api/potions"
+			},
+			"response": [
+				{
+					"id": "25eb217b-c286-42f1-917a-8d6558078c60",
+					"name": "All potions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:7071/api/potions"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 Feb 2024 16:15:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "[\n    {\n        \"id\": 0,\n        \"name\": \"Strength Potion\",\n        \"effect\": \"Superhuman Strength\",\n        \"ingredients\": [\n            0,\n            1\n        ]\n    },\n    {\n        \"id\": 1,\n        \"name\": \"Ageing Potion\",\n        \"effect\": \"Ages drinker temporarily\",\n        \"ingredients\": [\n            1,\n            2\n        ]\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Hair-Raising Potion\",\n        \"effect\": \"Raises hair up on end\",\n        \"ingredients\": [\n            3,\n            4,\n            5\n        ]\n    }\n]"
+				},
+				{
+					"id": "14d476c4-c395-497f-a9f6-d5d54725f9a0",
+					"name": "Potion",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:7071/api/potions/a"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 Feb 2024 16:16:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"id\": 0,\n    \"name\": \"Strength Potion\",\n    \"effect\": \"Superhuman Strength\",\n    \"ingredients\": [\n        0,\n        1\n    ]\n}"
+				},
+				{
+					"id": "6a44d3c4-aff8-4e08-983d-1f1ec379a18f",
+					"name": "Invalid ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:7071/api/potions/4"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 Feb 2024 16:16:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "The provided id 'a', is not an int."
+				},
+				{
+					"id": "fbef0932-b69c-4aa5-beb3-c7377c9b2127",
+					"name": "Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:7071/api/potions/4"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 Feb 2024 16:17:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "Potion not found"
+				}
+			]
+		},
+		{
+			"name": "Ingredients",
+			"id": "7ec9cd0b-68cb-484a-80aa-70c77c53d664",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:7071/api/ingredients"
+			},
+			"response": [
+				{
+					"id": "822f13e0-639d-4a1d-a853-d5ff89ecfdc4",
+					"name": "Ingredients",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:7071/api/ingredients"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 Feb 2024 16:20:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "[\n    {\n        \"id\": \"0\",\n        \"name\": \"Porcupine quills\"\n    },\n    {\n        \"id\": \"1\",\n        \"name\": \"Rat tails\"\n    },\n    {\n        \"id\": \"3\",\n        \"name\": \"Bananas\"\n    },\n    {\n        \"id\": \"4\",\n        \"name\": \"Water\"\n    }\n]"
+				},
+				{
+					"id": "41e3d7e7-137b-4ff0-9d2e-64be46ad00ff",
+					"name": "Ingredient",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:7071/api/ingredients/1"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 Feb 2024 16:24:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Rat tails\"\n}"
+				},
+				{
+					"id": "e7eb60a3-6db7-4b9c-8266-d6f109621a40",
+					"name": "Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:7071/api/ingredients/5"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 Feb 2024 16:24:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "Ingredient not found"
+				},
+				{
+					"id": "e5aab542-9a6c-45ca-b09e-a422784a72bb",
+					"name": "Invalid ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:7071/api/ingredients/asd"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 Feb 2024 16:24:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "The provided id 'asd', is not an integer."
+				}
+			]
+		}
+	]
+}
