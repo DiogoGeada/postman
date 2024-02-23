@@ -79,7 +79,25 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:7071/api/potions"
+				"url": {
+					"raw": "http://localhost:7071/api/potions/:potionId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"potions",
+						":potionId"
+					],
+					"variable": [
+						{
+							"key": "potionId",
+							"value": "1"
+						}
+					]
+				}
 			},
 			"response": [
 				{
