@@ -6,6 +6,399 @@
 	},
 	"item": [
 		{
+			"name": "Ingredients",
+			"item": [
+				{
+					"name": "Ingredients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5088a524-cd72-4b27-9712-bbc1264c9104",
+								"exec": [
+									"const response = pm.response.json()\r",
+									"pm.environment.set(\"highest_ingredient_id\", response[response.length-1].id);\r",
+									"\r",
+									"pm.test(\"Status is 200\", () => {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Returns more than one ingredient\", () => {\r",
+									"    pm.expect(response).to.be.an(\"array\")\r",
+									"    pm.expect(response.length).to.be.greaterThan(1)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Ingredients have the right structure\", () => {\r",
+									"    pm.expect(response[0]).to.be.an(\"object\")\r",
+									"    pm.expect(response[0]).to.have.property(\"id\")\r",
+									"    pm.expect(response[0]).to.have.property(\"name\")\r",
+									"\r",
+									"    let is_id_invalid = isNaN(response[0].id)\r",
+									"    pm.expect(is_id_invalid).to.be.false\r",
+									"    pm.expect(response[0].name).to.not.be.empty\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "7ec9cd0b-68cb-484a-80aa-70c77c53d664",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/ingredients"
+					},
+					"response": [
+						{
+							"id": "03251130-b8e9-449b-bc33-7ab08aed8568",
+							"name": "Ingredients",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}/ingredients"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 14:27:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"id\": 0,\n        \"name\": \"Bananas\"\n    },\n    {\n        \"id\": 1,\n        \"name\": \"Dragon Blood\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Porcupine Quills\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Mandrake infusion\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Water\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Rat Tails\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"id": "902ac3a8-b49a-4e56-8740-752dd3dfc3c1"
+		},
+		{
+			"name": "Ingredient",
+			"item": [
+				{
+					"name": "Ingredient - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5088a524-cd72-4b27-9712-bbc1264c9104",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Status is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Correct response structure\", () => {",
+									"    pm.expect(response).to.be.an(\"object\")",
+									"    pm.expect(response).to.have.property(\"id\")",
+									"    pm.expect(response).to.have.property(\"name\")",
+									"})",
+									"",
+									"pm.test(\"Valid response data\", () => {",
+									"    pm.expect(response.id).to.be.not.NaN",
+									"    pm.expect(response.name).to.be.a(\"string\")",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6ff7036e-93f1-4c0f-971b-43c52ebaf9a1",
+								"exec": [
+									"pm.environment.set(\"ingredient_id\", 0)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "f441323b-a5ef-440a-a222-bd9562098554",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/ingredients/0"
+					},
+					"response": [
+						{
+							"id": "4bdd65ff-08f7-4bee-bd94-bfddd4915380",
+							"name": "Ingredient - 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}/ingredients/0"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 14:21:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"id\": 0,\n    \"name\": \"Bananas\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Ingredient - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5088a524-cd72-4b27-9712-bbc1264c9104",
+								"exec": [
+									"let response = pm.response.text()",
+									"",
+									"pm.test(\"Status is 404\", () => {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Correct error  message\", () => {",
+									"    pm.expect(response).to.be.equals(\"Ingredient not found\")",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "aac0666f-c0cf-4843-a60d-d75412872819",
+								"exec": [
+									"let ingredient_id = Number(pm.environment.get(\"highest_ingredient_id\"))\r",
+									"pm.environment.set(\"ingredient_id\", ingredient_id+1)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "36e6e54b-fe7f-49c0-af82-a061983621ae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/ingredients/:ingredient_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ingredients",
+								":ingredient_id"
+							],
+							"variable": [
+								{
+									"id": "86a2f658-42a4-4e52-ad1a-9789b6e9fdee",
+									"key": "ingredient_id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0d9ec853-d0f7-4829-a772-d8ad8640256c",
+							"name": "Ingredient - 404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/ingredients/:ingredient_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"ingredients",
+										":ingredient_id"
+									],
+									"variable": [
+										{
+											"key": "ingredient_id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "plain/text"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 14:36:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "Ingredient not found"
+						}
+					]
+				},
+				{
+					"name": "Ingredient - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5088a524-cd72-4b27-9712-bbc1264c9104",
+								"exec": [
+									"let response = pm.response.text()",
+									"",
+									"pm.test(\"Status is 400\", () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"let id = pm.environment.get(\"ingredient_id\")",
+									"pm.test(\"Correct error  message\", () => {",
+									"    pm.expect(response).to.be.equals(`The provided id '${id}', is not a valid integer`)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "aac0666f-c0cf-4843-a60d-d75412872819",
+								"exec": [
+									"pm.environment.set(\"ingredient_id\", \"abc\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "66ade7e1-b9e5-4d53-a25f-195f1e5d3c2e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/ingredients/:ingredient_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ingredients",
+								":ingredient_id"
+							],
+							"variable": [
+								{
+									"id": "a594d389-d003-490f-a0af-bfee6639f68e",
+									"key": "ingredient_id",
+									"value": "{{ingredient_id}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "297079f7-aabb-4fe6-a728-778a6576e293",
+							"name": "Ingredient - 400",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/ingredients/:ingredient_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"ingredients",
+										":ingredient_id"
+									],
+									"variable": [
+										{
+											"key": "ingredient_id",
+											"value": "{{ingredient_id}}"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 14:22:08 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "The provided id 'abc', is not a valid integer"
+						}
+					]
+				}
+			],
+			"id": "925ceb81-e1a8-4e9e-a71c-b06b0f469d35"
+		},
+		{
 			"name": "Potions",
 			"event": [
 				{
@@ -231,152 +624,6 @@
 					"cookie": [],
 					"responseTime": null,
 					"body": "Potion not found"
-				}
-			]
-		},
-		{
-			"name": "Ingredients",
-			"id": "7ec9cd0b-68cb-484a-80aa-70c77c53d664",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "http://localhost:7071/api/ingredients"
-			},
-			"response": [
-				{
-					"id": "822f13e0-639d-4a1d-a853-d5ff89ecfdc4",
-					"name": "Ingredients",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:7071/api/ingredients"
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 21 Feb 2024 16:20:09 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						}
-					],
-					"cookie": [],
-					"responseTime": null,
-					"body": "[\n    {\n        \"id\": \"0\",\n        \"name\": \"Porcupine quills\"\n    },\n    {\n        \"id\": \"1\",\n        \"name\": \"Rat tails\"\n    },\n    {\n        \"id\": \"3\",\n        \"name\": \"Bananas\"\n    },\n    {\n        \"id\": \"4\",\n        \"name\": \"Water\"\n    }\n]"
-				},
-				{
-					"id": "41e3d7e7-137b-4ff0-9d2e-64be46ad00ff",
-					"name": "Ingredient",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:7071/api/ingredients/1"
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 21 Feb 2024 16:24:12 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						}
-					],
-					"cookie": [],
-					"responseTime": null,
-					"body": "{\n    \"id\": 1,\n    \"name\": \"Rat tails\"\n}"
-				},
-				{
-					"id": "e7eb60a3-6db7-4b9c-8266-d6f109621a40",
-					"name": "Not Found",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:7071/api/ingredients/5"
-					},
-					"status": "Not Found",
-					"code": 404,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 21 Feb 2024 16:24:41 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						}
-					],
-					"cookie": [],
-					"responseTime": null,
-					"body": "Ingredient not found"
-				},
-				{
-					"id": "e5aab542-9a6c-45ca-b09e-a422784a72bb",
-					"name": "Invalid ID",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:7071/api/ingredients/asd"
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 21 Feb 2024 16:24:56 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						}
-					],
-					"cookie": [],
-					"responseTime": null,
-					"body": "The provided id 'asd', is not an integer."
 				}
 			]
 		},
