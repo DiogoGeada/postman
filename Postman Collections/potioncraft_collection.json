@@ -645,7 +645,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"wizard_name\": \"{{$randomFullName}}\",\r\n    \"ingredients\": [0, 3]\r\n}",
+					"raw": "{\r\n    \"wizard_name\": \"<?php echo 'Hello!'; ?>\",\r\n    \"ingredients\": [0, 3]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
