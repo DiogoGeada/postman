@@ -47,6 +47,13 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": {
+								"value": "{{api_key}}",
+								"key": "x-functions-key"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "{{host}}/ingredients"
@@ -648,6 +655,35 @@
 				"url": "{{host}}/brew"
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": {
+			"key": "x-functions-key",
+			"value": "{{api_key}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "89c80efd-8d1c-4e67-935a-ef8489988cec",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1261907a-df13-470a-8cdb-7d39f5cfdeea",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
